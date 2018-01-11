@@ -1,0 +1,15 @@
+<% include partical/header.ejs %>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="container page-content ">
+            <div class="row">
+                <div class="list-group">
+                    <p class="list-group-item"><%= user.email %></p>
+                    <p class="list-group-item"><%= user.name %></p>
+                    <p class="list-group-item"><img src="<%= user.image %>" width="100" height="100"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include partical/footer.ejs %>

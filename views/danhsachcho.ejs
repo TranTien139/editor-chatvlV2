@@ -1,0 +1,137 @@
+<% include partical/header.ejs %>
+<div class="main-content">
+    <div class="main-content-inner">
+        <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">Home</a>
+                </li>
+
+                <li>
+                    <a href="#">Tables</a>
+                </li>
+                <li class="active">Simple &amp; Dynamic</li>
+            </ul><!-- /.breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+                <form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off">
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+                </form>
+            </div><!-- /.nav-search -->
+        </div>
+        <div class="page-content">
+            <div class="ace-settings-container" id="ace-settings-container">
+                <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+                    <i class="ace-icon fa fa-cog bigger-130"></i>
+                </div>
+
+                <div class="ace-settings-box clearfix" id="ace-settings-box">
+                    <div class="pull-left width-50">
+
+                    </div><!-- /.pull-left -->
+
+                    <div class="pull-left width-50">
+
+                    </div><!-- /.pull-left -->
+                </div><!-- /.ace-settings-box -->
+            </div><!-- /.ace-settings-container -->
+
+            <div class="page-header">
+                <h1>
+                    Tables
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        Static &amp; Dynamic Tables
+                    </small>
+                </h1>
+            </div><!-- /.page-header -->
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <!-- PAGE CONTENT BEGINS -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table id="simple-table" class="table  table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="center">
+                                        <label class="pos-rel">
+                                            <input type="checkbox" class="ace">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </th>
+                                    <th>Xuất bản</th>
+                                    <th class="detail-col">tiêu đề</th>
+                                    <th>ảnh</th>
+                                    <th>
+                                        <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                                        Ngày
+                                    </th>
+                                    <th class="hidden-480">Trang crawler</th>
+                                    <th class="hidden-480">Trạng Thái</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                <% for(var $i= 0; $i< data.length; $i++ ){ %>
+                                <tr>
+                                    <td class="center">
+                                        <label class="pos-rel">
+                                            <input type="checkbox" class="ace">
+                                            <span class="lbl"></span>
+                                        </label>
+                                    </td>
+                                    <td class="center">
+                                        <a href="/publish/<%= data[$i]._id %>">publish</a>
+                                        <a href="/delete/<%= data[$i]._id %>">Xóa</a>
+                                    </td>
+                                    <td style="width: 200px;">
+                                        <a href="javascript:void(0)"><%= data[$i].title %></a>
+                                    </td>
+                                    <td><a <% if(data[$i].linkVideo !== ''){ %> target="_blank" href="https://www.youtube.com/watch?v=<%= data[$i].linkVideo %>" <% }else{ %> href="<%= data[$i].image %>" <% } %> ><img src="<%= data[$i].image %>" width="150px" height="150px"></a> </td>
+                                    <td class="hidden-480"><%= data[$i].date.toLocaleTimeString() + ' ' + data[$i].date.toLocaleDateString() %></td>
+                                    <th class="hidden-480"><%= data[$i].source %></th>
+                                    <td class="hidden-480">
+                                        <span class="label label-sm label-warning">Draft</span>
+                                    </td>
+                                </tr>
+                                <% } %>
+
+                                </tbody>
+                            </table>
+                        </div><!-- /.span -->
+                    </div><!-- /.row -->
+
+                    <%  var page = Math.ceil(len/20); %>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="?page=0" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <% for(var i=0; i<page; i++){ %>
+                            <li><a href="?page=<%= i %>"><%= i %></a></li>
+                            <% } %>
+                            <li>
+                                <a href="?page=<%= page -1 %>" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.page-content -->
+    </div>
+</div><!-- /.main-content -->
+<% include partical/footer.ejs %>
+
+
