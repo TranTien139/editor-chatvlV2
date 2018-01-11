@@ -4,6 +4,9 @@
   "scripts": {
     "start": "node server.js"
   },
+  "engines": {
+    "node": "7.10"
+  },
   "dependencies": {
     "async": "^2.1.5",
     "bcrypt-nodejs": "latest",
