@@ -5,7 +5,8 @@
     "start": "node server.js"
   },
   "engines": {
-    "node": "7.10"
+    "node": "7.10",
+    "npm": "4.2.0"
   },
   "dependencies": {
     "async": "^2.1.5",
