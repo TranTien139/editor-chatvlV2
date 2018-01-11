@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 var bodyParser =    require("body-parser");
-var redis = require("redis");
 var cron = require("node-cron");
 var cheerio = require("cheerio");
 var request = require("request");
