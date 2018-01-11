@@ -33,17 +33,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.bodyParser());
 app.use(flash());
 
-cron.schedule('0 */12 * * *', function () {
-   crawler.crawlerXem('https://xem.vn');
-});
-
-cron.schedule('0 */14 * * *', function () {
-    crawler.crawlerChatvl('http://chatvl.com');
-});
+// cron.schedule('0 */12 * * *', function () {
+//    crawler.crawlerXem('https://xem.vn');
+// });
+//
+// cron.schedule('0 */14 * * *', function () {
+//     crawler.crawlerChatvl('http://chatvl.com');
+// });
 
 require('./app/routes.js')(app, passport,server);
 
-server.listen(port, "127.0.0.1",function () {
-    console.log('listen on port ' + port);
-});
+server.listen(port);
+console.log("listening port ", port);
 
