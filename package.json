@@ -1,6 +1,9 @@
 {
   "name": "node-authentication",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "async": "^2.1.5",
     "bcrypt-nodejs": "latest",
