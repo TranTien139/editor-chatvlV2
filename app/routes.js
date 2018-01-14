@@ -155,6 +155,20 @@ module.exports = function (app, passport, server) {
         }
     });
 
+    app.get('/draft/:id', isLoggedIn, function (req, res) {
+        var user = req.user;
+        var id_art = req.params.id;
+        if(typeof id_art !== 'undefined'){
+            fun.NhapBaiViet(id_art,function (err, data) {
+                var backURL=req.header('Referer') || '/';
+                res.redirect(backURL);
+            });
+        }else {
+            var backURL=req.header('Referer') || '/';
+            res.redirect(backURL);
+        }
+    });
+
     // =====================================
     // LOGOUT ==============================
     // =====================================

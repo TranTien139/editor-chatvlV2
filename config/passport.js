@@ -68,7 +68,7 @@ module.exports = function (passport) {
 
                         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                         var checkemail = re.test(email);
-                        var slug = ChangeToSlug(req.body.fullname) +'@'+ Math.floor(Math.random() * Math.floor(1000));
+                        var slug = ChangeToSlug(req.body.fullname) +'@'+ Math.floor(Math.random() * Math.floor(10000));
                         if (checkemail) {
                             if (password === req.body.repassword) {
                                 var newUser = new User();

@@ -50,6 +50,7 @@ function DuyetBaiViet(id,user, callback) {
             result.userId = user._id,
             result.userSlug = user.userSlug,
             result.status = 'Publish';
+            result.published_at = Math.floor(Date.now()/1000);
             result.likes = [];
             result.shares = [];
             result.dislikes = [];
@@ -67,10 +68,23 @@ function XoaBaiViet(id,callback) {
     });
 }
 
+function NhapBaiViet(id,callback) {
+    Article.findOne({'_id': id}, function (err, result) {
+        if(result !== null) {
+            result.status = 'Draft';
+            result.save(function (err) {
+                if(err) throw err;
+            });
+            callback(err,result);
+        }
+    });
+}
+
 module.exports.SaveTodataBase = SaveTodataBase;
 module.exports.DanhSachChoDuyet = DanhSachChoDuyet;
 module.exports.DuyetBaiViet = DuyetBaiViet;
 module.exports.XoaBaiViet = XoaBaiViet;
+module.exports.NhapBaiViet = NhapBaiViet;
 module.exports.CountDanhSachChoDuyet = CountDanhSachChoDuyet;
 
 module.exports.DanhSachUser = DanhSachUser;
