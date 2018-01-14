@@ -33,11 +33,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.bodyParser());
 app.use(flash());
 
-cron.schedule('0 12 * * *', function () {
+cron.schedule('00 00 12 * * *', function () {
    crawler.crawlerXem('https://xem.vn');
 });
 
-cron.schedule('0 14 * * *', function () {
+cron.schedule('00 00 14 * *', function () {
     crawler.crawlerChatvl('http://chatvl.com');
 });
 
