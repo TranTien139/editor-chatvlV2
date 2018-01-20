@@ -59,6 +59,8 @@ function DuyetBaiViet(id,user, callback) {
                 if(err) throw err;
             });
             callback(err,result);
+        } else {
+            callback(err,result);
         }
     });
 }

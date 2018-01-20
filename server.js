@@ -21,6 +21,8 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(express.logger('dev')); // log every request to the console
 app.use(express.cookieParser());
 
+process.env.TZ = 'Asia/Ho_Chi_Minh';
+
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
