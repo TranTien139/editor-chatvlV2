@@ -15,7 +15,7 @@ var AricleSchema = mongoose.Schema({
   type: String,
   source: String,
   published_at: Number,
-  date: {type: Date, default: Date.now},
+  date: Number,
   likes: [],
   shares: [],
   dislikes: []

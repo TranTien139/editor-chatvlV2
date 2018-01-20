@@ -13,6 +13,7 @@ function SaveTodataBase(data) {
            newArticle.linkVideo = data.linkVideo;
            newArticle.type = data.type;
            newArticle.source = data.source;
+           newArticle.date = Math.floor(Date.now()/1000);
            newArticle.save(function (err) {
                if(err) throw err;
            });
@@ -33,7 +34,7 @@ function CountDanhSachChoDuyet(status, callback) {
 }
 
 function DanhSachUser(skip,callback) {
-    User.find({}).sort({date: -1}).skip(skip).limit(20).exec(function (err,data) {
+    User.find({}).sort({published_at: -1}).skip(skip).limit(20).exec(function (err,data) {
         callback(err, data);
     });
 }

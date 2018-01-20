@@ -95,7 +95,7 @@
                                         <a href="javascript:void(0)"><%= data[$i].title %></a>
                                     </td>
                                     <td><a <% if(data[$i].linkVideo !== ''){ %> target="_blank" href="https://www.youtube.com/watch?v=<%= data[$i].linkVideo %>" <% }else{ %> href="<%= data[$i].image %>" <% } %> ><img src="<%= data[$i].image %>" width="150px" height="150px"></a> </td>
-                                    <td class="hidden-480"><%= data[$i].date.toLocaleTimeString() + ' ' + data[$i].date.toLocaleDateString() %></td>
+                                    <td class="hidden-480"><% var date = new Date(data[$i].date*1000); %><%= date.toLocaleTimeString() + ' ' + date.toLocaleDateString() %></td>
                                     <th class="hidden-480"><%= data[$i].source %></th>
                                     <td class="hidden-480">
                                         <span class="label label-sm label-warning">Draft</span>
