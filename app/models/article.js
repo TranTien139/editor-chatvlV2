@@ -3,8 +3,10 @@
  */
 var mongoose = require("mongoose");
 
+var ObjectId = mongoose.Schema.Types.ObjectId;
+
 var AricleSchema = mongoose.Schema({
-  userId: String,
+  userId: ObjectId,
   userSlug: String,
   title: String,
   image: String,
@@ -16,9 +18,10 @@ var AricleSchema = mongoose.Schema({
   source: String,
   published_at: Number,
   date: Number,
-  likes: [],
-  shares: [],
-  dislikes: []
+  total_like: Number,
+  like_icon: Array,
+  total_share: Number,
+  total_comment: Number
 });
 
 module.exports = mongoose.model('Article',AricleSchema);

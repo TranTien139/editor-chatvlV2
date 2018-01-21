@@ -1,6 +1,7 @@
 
 var Article = require('../../app/models/article.js');
 var User = require('../../app/models/user.js');
+var ObjectID = require('mongodb').ObjectID;
 
 function SaveTodataBase(data) {
     Article.findOne({'title': data.title, image: data.image}, function (err, result) {
@@ -52,9 +53,12 @@ function DuyetBaiViet(id,user, callback) {
             result.userSlug = user.userSlug,
             result.status = 'Publish';
             result.published_at = Math.floor(Date.now()/1000);
-            result.likes = [];
-            result.shares = [];
-            result.dislikes = [];
+
+            result.total_like = 0;
+            result.like_icon = [];
+            result.total_share = 0;
+            result.total_comment = 0;
+
             result.save(function (err) {
                 if(err) throw err;
             });
