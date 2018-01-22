@@ -58,6 +58,8 @@ function DuyetBaiViet(id,user, callback) {
             result.like_icon = [];
             result.total_share = 0;
             result.total_comment = 0;
+            result.total_view = 0;
+            esult.likes = 0;
 
             result.save(function (err) {
                 if(err) throw err;
