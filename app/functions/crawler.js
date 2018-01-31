@@ -49,7 +49,7 @@ function crawlerXem(url, callback) {
                 link_crawler = url + link_crawler;
 
                 if (link_image !== '' && title !== '') {
-                    var data = {title: title, image: link_image, linkCrawler: link_crawler,linkVideo: '',type:'video',source:url}
+                    var data = {title: title, image: link_image, linkCrawler: link_crawler,linkVideo: '',type:'image',source:url}
                     fun.SaveTodataBase(data);
                 }
             });

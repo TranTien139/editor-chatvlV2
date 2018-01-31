@@ -35,13 +35,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.bodyParser());
 app.use(flash());
 
-cron.schedule('00 12 * * *', function () {
-   crawler.crawlerXem('https://xem.vn');
-});
+setInterval(function (){
+    crawler.crawlerXem('https://xem.vn');
+},1000 * 12* 3600);
 
-cron.schedule('00 14 * * *', function () {
+
+setInterval(function (){
     crawler.crawlerChatvl('http://chatvl.com');
-});
+},1000 * 12* 3600);
+
+
 
 require('./app/routes.js')(app, passport,server);
 
