@@ -22,7 +22,7 @@ function crawlerChatvl(url, callback) {
                         fun.SaveTodataBase(data);
                     }
                 }else {
-                    var video = link_image.replace('https://i.ytimg.com/vi/','').replace('/0.jpg','');
+                    var video = link_image.replace('http://i.ytimg.com/vi/','').replace('https://i.ytimg.com/vi/','').replace('/0.jpg','');
                     if (link_image !== '' && title !== '') {
                         var data = {title: title, image: link_image, linkCrawler: link_crawler, linkVideo: video,type:'video',source:url}
                         fun.SaveTodataBase(data);
