@@ -36,11 +36,13 @@ app.use(express.bodyParser());
 app.use(flash());
 
 setInterval(function (){
+    console.log('xem.vn');
     crawler.crawlerXem('https://xem.vn');
 },1000 * 12* 3600);
 
 
 setInterval(function (){
+    console.log('chat vl.com');
     crawler.crawlerChatvl('http://chatvl.com');
 },1000 * 12* 3600);
 
